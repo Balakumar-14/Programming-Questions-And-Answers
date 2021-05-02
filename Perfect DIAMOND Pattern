@@ -1,9 +1,10 @@
 #include<stdio.h>
 void main()
 {
-    int i,j,k,n,m=30;
+    int i,j,k,n,m;
     printf("Enter the height of needed diamond:");
     scanf("%d",n);
+    m=n;
     for(i=1;i<=n/2;i++)
     {
         for(j=m;j>=1;j--)
