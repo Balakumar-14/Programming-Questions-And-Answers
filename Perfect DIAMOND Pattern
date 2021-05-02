@@ -1,0 +1,26 @@
+#include<stdio.h>
+void main()
+{
+    int i,j,k,n,m=30;
+    printf("Enter the height of needed diamond:");
+    scanf("%d",n);
+    for(i=1;i<=n/2;i++)
+    {
+        for(j=m;j>=1;j--)
+            printf(" ");
+        for(k=1;k<=2*i-1;k++)
+            printf("*");
+        printf("\n");
+        m--;
+    }
+    for(i=n/2-1;i>=1;i--)
+    {
+        for(j=m-1;j<=n;j++)
+            printf(" ");
+        for(k=1;k<=2*i-1;k++)
+            printf("*");
+        printf("\n");
+        m--;
+    }
+
+}
