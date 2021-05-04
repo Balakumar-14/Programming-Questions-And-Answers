@@ -1,39 +1,51 @@
 #include<stdio.h>
-int a[10],top,x,n=10;
+int stack[10],top=-1;
+void push();
+void pop();
+void display();
 int main()
 {
-	top=-1;
-	push(a);
-	push(a);
-	push(a);
-	pop(a);
-	display(a);
+	int n=1;
+	while(n!=0)
+	{
+		printf("\nEnter your choice of operation: 1-push 2-pop 3- display 0-EXIT()");
+		scanf("\n%d",&n);
+		switch(n)
+		{
+			case 1:
+				push();
+				break;
+			case 2:
+				pop();
+				break;
+			case 3:
+				display();
+				break;
+			default:
+				break;
+		}
+	}
 	return 0;
 }
-void push(int a[])
+void push()
 {
-	printf("Enter the number to be pushed:\n");
+	int x;
+	top++;
+	printf("\nEnter the element to be added:");
 	scanf("%d",&x);
-	if(top>=n-1)
-	{
-		printf("Stack overflow");
-	}
-	else
-	{
-		top++;
-		a[top]=x;
-	}
+	stack[top]=x;
 }
-void pop(int a[])
+void pop()
 {
+	printf("\nThe last element %d deleted",stack[top]);
 	top--;
 }
-void  display(int a[])
+void display()
 {
 	int i;
-	printf("Elements are:");
+	printf("\nThe elements are");
 	for(i=0;i<=top;i++)
 	{
-		printf("%d",a[i]);
+		printf("\n%d",stack[i]);
 	}
 }
