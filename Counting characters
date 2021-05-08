@@ -1,0 +1,23 @@
+#include<stdio.h> 
+struct occ{
+	int digit;
+
+}; 
+int main()
+
+{
+
+int n,m,x;
+
+struct occ occur[10]={0};
+ scanf("%d %d", &n, &m); 
+ while(n>0) {
+
+x=n%10;
+ occur[x].digit++;
+  n=n/10;
+
+}
+
+printf("%d", occur[m].digit); return 0;
+}
