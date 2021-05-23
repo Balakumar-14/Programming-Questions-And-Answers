@@ -1,0 +1,56 @@
+#include<stdio.h>
+int max1(int A, int B)
+{
+	return(A>B?A:B);
+}
+int max(int A,int B,int C)
+{
+	int largest= A > B ? (A > C ? A : C) : (B > C ? B : C);
+	return largest;
+}
+int min(int A,int B,int C)
+{
+	int smallest=A < B ? (A < C ? A : C) : (B < C ? B : C);
+	return smallest;
+}
+int maxSubarrayProduct(int a[],int n)
+{
+	int cur_max_product=a[0];
+	int cur_min_product=a[0];
+	int prev_max_product=a[0];
+	int prev_min_product=a[0];
+	int ans=a[0];
+	int i;
+	for(i=1;i<n;i++)
+	{
+		cur_max_product=max(prev_max_product*a[i],prev_min_product*a[i],a[i]);
+		cur_min_product=min(prev_max_product*a[i],prev_min_product*a[i],a[i]);
+		ans=max1(ans,cur_max_product);
+		prev_max_product=cur_max_product;
+		prev_min_product=cur_min_product;
+	}
+	return ans;
+}
+int main()
+{
+	int siz;
+
+printf("\nEnter the size of the array :" );
+
+scanf("%d",&siz);
+
+int arr[10],i;
+
+// Input the array elements
+
+printf("\nInput the array elements : ");
+
+for( i=0;i<siz;i++)
+
+scanf("%d",&arr[i]);
+
+printf("\nMaximum product : %d\n",maxSubarrayProduct(arr, siz)); // call the function
+
+return 0;
+
+}
