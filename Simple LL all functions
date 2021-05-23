@@ -1,0 +1,89 @@
+#include<stdio.h>
+#include<stdlib.h>
+struct node{
+	int data;
+	struct node* next;
+};
+struct node *head=NULL;
+void push(int data)
+{
+	struct node *newnode=(struct node*)malloc(sizeof(struct node));
+	newnode->data=data;
+	newnode->next=head;
+	head=newnode;
+}
+void display()
+{
+	struct node* temp=head;
+	while(temp!=NULL)
+	{
+		printf("%d",temp->data);
+		temp=temp->next;
+	}
+}
+void append(int data)
+{
+	int i=0;
+	struct node *newnode=(struct node*)malloc(sizeof(struct node));
+	newnode->data=data;
+	newnode->next=NULL;
+	if(head==NULL)
+	{
+		newnode->next=head;
+		head=newnode;
+		return;
+	}
+	struct node* last=head;
+	while(last->next!=NULL)
+	{
+		last=last->next;
+	}
+	last->next=newnode;
+}
+void Delete(int n)
+{
+	int i;
+	struct node *temp=head;
+	if(n==1)
+	{
+		head=temp->next;
+		free(temp);
+		return;
+	}
+	for(i=0;i<n-2;i++)
+	{
+		temp=temp->next;
+	}
+	struct node* temp2=temp->next;
+	temp->next=temp2->next;
+	free(temp2);
+}
+void insert(int data, int pos)
+{
+	int i=0;
+	struct node *newnode=(struct node*)malloc(sizeof(struct node));
+	newnode->data=data;
+	if(pos==1)
+	{
+		newnode->next=head;
+		head=newnode;
+		return;
+	}
+	struct node *temp=head;
+	for(i=0;i<pos-2;i++)
+	{
+		temp=temp->next;
+	}
+	newnode->next=temp->next;
+	temp->next=newnode;
+}
+int main()
+{
+	push(2);
+	push(4);
+	push(6);
+	insert(5,3);
+	append(9);
+	//Delete(1);
+	display();
+}
