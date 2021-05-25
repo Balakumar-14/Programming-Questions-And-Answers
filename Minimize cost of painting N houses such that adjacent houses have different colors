@@ -1,0 +1,30 @@
+#include<stdio.h>
+int FindMaxSum(int arr[][3], int n)
+{
+	int a[n];
+	int sum=0,i,j,temp;
+	for(i=0;i<n;i++)
+	{
+		int min=arr[i][0];
+		for(j=0;j<3;j++)
+		{
+			if(arr[i][j]<min&& (j!=a[i-1] || i==0))
+			{
+				min=arr[i][j];
+				temp=j;
+			}
+		}
+		a[i]=temp;
+		sum+=min;
+	}
+	return sum;
+}
+
+/* Driver program to test above function */
+int main()
+{
+int arr[][3] = { { 14, 2, 11 },{ 11, 14, 5 },{ 14, 3, 10 } };
+int n = sizeof(arr) / sizeof(arr[0]);
+printf("%d", FindMaxSum(arr, n));
+return 0;
+}
