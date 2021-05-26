@@ -1,0 +1,54 @@
+#include <stdio.h>
+ 
+// This function prints common elements in ar1
+void findCommon(int a[], int n)
+{
+    int c[n],b[n];
+    int i,j=0,k=0,l;
+    for(i=0;i<n;i++)
+    {
+    	if(a[i]<0)
+    	{
+    		b[j++]=a[i];
+		}
+		else
+		{
+			c[k++]=a[i];
+		}
+	}
+	i=0,l=0;
+	while(1)
+	{
+		if(i+l==n)
+		{
+			return;
+		}
+		else if(i<j && l<k)
+		{
+			printf("%d,%d,",b[i],c[l]);
+			i++;
+			l++;
+		}
+		else if(i<=j && l>k)
+		{
+			printf("%d,",b[i]);
+			i++;
+		}
+		else if(i>=j && l<k)
+		{
+			printf("%d,",c[l]);
+			l++;
+		}
+	}
+}
+ 
+// Driver code
+int main()
+{
+    int ar1[] = {-5, -2, 5, 2, 4, 7, 1, 8, 0, -8};
+    int n1 = sizeof(ar1)/sizeof(ar1[0]);
+ 
+    printf("Common Elements are ");
+    findCommon(ar1, n1);
+    return 0;
+}
