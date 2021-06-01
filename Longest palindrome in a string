@@ -1,0 +1,44 @@
+#include<stdio.h>
+#include<stdlib.h>
+int palindrome(char s[],int i,int j)
+{
+	int k;
+	
+	while(i<j)
+	{
+		if(s[i++]!=s[j--])
+		{
+			return 0;
+		}
+	}
+	return 1;
+}
+void main()
+{
+	int i,j,n,m,l,max=0;
+	char s[]="forgeeksskeegfor";
+	n=strlen(s);
+	for(i=0;i<n;i++)
+	{
+		for(j=i+1;j<n;j++)
+		{
+			if(palindrome(s,i,j)==1)
+			{
+				int k;
+				
+				if(max<(j-i))
+				{
+					max=j-i;
+					m=i;
+					l=j;
+				}
+			}
+		}
+	}
+	int k;
+	for(k=m;k<=l;k++)
+	{
+		printf("%c",s[k]);
+	}
+	
+}
