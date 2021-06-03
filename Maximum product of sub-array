@@ -64,3 +64,15 @@ Output:   60  // The subarray is {60}
 
 Input: arr[] = {-2, -40, 0, -2, -3}
 Output:   80  // The subarray is {-2, -40}
+///////////////////////\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+
+	int ans=a[0];
+	int i;
+	for(i=1;i<n;i++)
+	{
+		cur_max_product=max(cur_max_product*a[i],cur_min_product*a[i],a[i]);
+		cur_min_product=min(cur_max_product*a[i],cur_min_product*a[i],a[i]);
+		ans=max1(ans,cur_max_product);
+	}
+	return ans;
+}
