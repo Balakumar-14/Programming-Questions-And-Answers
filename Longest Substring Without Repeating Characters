@@ -33,3 +33,7 @@ void main()
 	printf("%d",max);
 	
 }
+
+INPUT/OUPUT:
+The input string is geeksforgeeks
+The length of the longest non-repeating character substring is 7
