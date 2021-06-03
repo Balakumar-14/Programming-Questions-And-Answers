@@ -3,21 +3,21 @@
 // This function prints common elements in ar1
 void FindMinpaintcost(int arr[][3], int n)
 {
-	int i,j,temp,min,sum=0;
-	int a[3];	
+	int i,j,min=100,temp=n,sum=0,f;
 	for(i=0;i<n;i++)
 	{
-		int min=arr[i][0];
-		for(j=0;j<n;j++)
+		min=arr[i][0];
+		for(j=0;j<3;j++)
 		{
-			if(arr[i][j]<min && a[i-1]!=j)
+			if(arr[i][j]<=min && j!=temp)
 			{
-				temp=j;
 				min=arr[i][j];
+				f=arr[i][j];
+				temp=j;
+				
 			}
 		}
-		a[i]=j;
-		sum+=min;
+		sum+=f;
 	}
 	printf("%d",sum);
 }
@@ -25,12 +25,11 @@ void FindMinpaintcost(int arr[][3], int n)
 // Driver code
 int main()
 {
-int arr[][3] = { { 1, 2, 11 },{ 11, 14, 5 },{ 14, 3, 10 } };
+int arr[][3] = {{14, 2, 11}, {11, 14, 5}, {14, 3, 10}};
 int n = sizeof(arr) / sizeof(arr[0]);
 FindMinpaintcost(arr, n);
 return 0;
 }
-
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 Input: N = 3, cost[][3] = {{14, 2, 11}, {11, 14, 5}, {14, 3, 10}}
 Output: 10
