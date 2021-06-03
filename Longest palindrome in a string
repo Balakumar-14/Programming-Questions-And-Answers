@@ -42,3 +42,8 @@ void main()
 	}
 	
 }
+
+
+INPUT/OUTPUT:
+Longest palindrome substring is: geeksskeeg
+Length is: 10
