@@ -45,5 +45,8 @@ void main()
 
 
 INPUT/OUTPUT:
-Longest palindrome substring is: geeksskeeg
-Length is: 10
+Input: Given string :"forgeeksskeegfor", 
+Output: "geeksskeeg".
+
+Input: Given string :"Geeks", 
+Output: "ee".
