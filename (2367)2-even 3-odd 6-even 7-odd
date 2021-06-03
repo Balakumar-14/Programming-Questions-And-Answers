@@ -2,16 +2,12 @@
 int main()
 {
 	int n=2367,a,sum=0;
-	/*while(n!=0)
+	while(n>0)
 	{
 		a=n%10;
 		sum=sum*10+a;
 		n=n/10;
-	}*/
-	while (n != 0) {
-        sum = sum * 10 + n%10;
-        n /= 10;
-    }
+	}
 	while(sum>0)
 	{
 		a=sum%10;
