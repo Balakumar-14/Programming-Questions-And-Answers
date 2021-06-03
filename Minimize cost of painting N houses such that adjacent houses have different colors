@@ -12,12 +12,11 @@ void FindMinpaintcost(int arr[][3], int n)
 			if(arr[i][j]<=min && j!=temp)
 			{
 				min=arr[i][j];
-				f=arr[i][j];
 				temp=j;
 				
 			}
 		}
-		sum+=f;
+		sum+=min;
 	}
 	printf("%d",sum);
 }
