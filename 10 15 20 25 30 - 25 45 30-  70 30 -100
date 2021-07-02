@@ -1,0 +1,64 @@
+#include<stdio.h>
+int change(int a[],int n)
+{
+	int m;
+	if(n%2==0){
+		m=n/2;
+	}
+	else{
+		m=n/2+1;
+	}
+	int i,b[m],j=0;
+	if(n%2==1){
+		for(i=0;i<n-1;i=i+2)
+		{
+			int sum1=0;
+			sum1=a[i]+a[i+1];
+			b[j++]=sum1;
+		}
+		b[m-1]=a[n-1];
+	}
+	else{
+		for(i=0;i<n;i=i+2)
+		{
+			int sum1=0;
+			sum1=a[i]+a[i+1];
+			b[j++]=sum1;
+		}
+	}
+	for(i=0;i<m;i++){
+		printf("%d ",b[i]);
+	}
+	if(m==1){
+		return 0;
+	}
+	if(m>1){
+		printf("\n");
+		change(b,m);
+	}
+}
+int main()
+{
+	int a[100],i,j,n;
+	scanf("%d",&n);
+	for(i=0;i<n;i++) scanf("%d",&a[i]);
+	change(a,n);
+}
+
+///////////////////////////////////////////////////////////////////////////////
+Input: 10 15 20 25 30
+
+
+
+
+Task is to sum every two elements – store it & print it and repeat it till it becomes only one value.
+
+Output:
+
+10 15 20 25 30
+
+25 45 30
+
+70 30
+
+100
