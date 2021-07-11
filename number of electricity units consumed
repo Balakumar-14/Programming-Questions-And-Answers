@@ -1,0 +1,28 @@
+#include<stdio.h>
+int main()
+{
+    float n,sum=0;
+    scanf("%f",&n);    
+    if(n>250)
+    {
+        sum+=(n-250)*1.5;
+        n=250;
+    }
+    if(n<=250&&n>150)
+    {
+        sum+=(n-150)*1.2;
+        n=150;
+    }
+    if(n<=150&&n>50)
+    {
+        sum+=(n-50)*0.75;
+        n=50;
+    }
+    if(n<=50)
+    {
+        sum+=(n)*0.5;
+    }    
+    int sum1=sum*(0.2);
+    sum=sum+sum1;
+    printf("%.2f",sum);
+}
